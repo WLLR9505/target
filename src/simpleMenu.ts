@@ -1,8 +1,10 @@
-const RL = require('readline-sync');
-const color = require('./colors');
+import * as RL from "readline-sync";
+import { background, color } from "./colors";
+import { Controls } from "./controls";
+
 var input = '';
 
-module.exports = function Menu(menuList) {
+export function menu(menuList : string[ ], control : Controls) {
     var posSeletor = 0;
     const nItens = menuList.length;
 
@@ -18,9 +20,9 @@ module.exports = function Menu(menuList) {
     }
 
     function ShowMenu() {
-        if (input == 'w')
+        if (input == control.up)
             posSeletor--;
-        else if (input == 's')
+        else if (input == control.down)
             posSeletor++;
 
         if (posSeletor == nItens) ///Seletor no fim e avança
@@ -39,10 +41,10 @@ module.exports = function Menu(menuList) {
             hideEchoBack: true,
             mask: ''
         });
-        if(input == 'q') {
+        if(input == control.back) {
             return -1;
         }
-    } while (input != 'e')
+    } while (input != control.select)
 
     return posSeletor;
 }

@@ -1,5 +1,5 @@
 //Cor Fundo:, 
-module.exports = {
+var background = {
 fnd_vermelho: "\x1b[01;41m", 
 fnd_verde: "\x1b[01;42m", 
 fnd_amarelo: "\x1b[01;43m", 
@@ -13,9 +13,11 @@ fnd_verdeEscuro: "\x1b[22;42m",
 fnd_amareloEscuro: "\x1b[22;43m", 
 fnd_azulEscuro: "\x1b[22;44m", 
 fnd_magentaEscuro: "\x1b[22;45m", 
-fnd_cianoEscuro: "\x1b[22;46m",
+fnd_cianoEscuro: "\x1b[22;46m"
+}
 
 //Cor Texto:, 
+var color = {
 cor_cinza: "\x1b[01;40m", 
 cor_vermelho: "\x1b[01;31m", 
 cor_verde: "\x1b[01;32m", 
@@ -33,3 +35,5 @@ cor_magentaEscuro: "\x1b[22;35m",
 cor_cianoEscuro: "\x1b[22;36m", 
 cor_reset: "\x1b[0m"
 }
+
+export { background, color};

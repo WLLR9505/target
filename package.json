@@ -1,11 +1,12 @@
 {
   "name": "target",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Simple terminal menu",
-  "main": "index.js",
+  "main": "./dist/index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./dist/test.spec.js",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 0"
   },
   "repository": {
     "type": "git",
@@ -23,6 +24,7 @@
   },
   "homepage": "https://github.com/WLLR9505/target#readme",
   "dependencies": {
+    "@types/readline-sync": "^1.4.3",
     "readline-sync": "^1.4.10"
   }
 }
