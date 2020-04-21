@@ -4,7 +4,7 @@
   "description": "Simple terminal menu",
   "main": "./dist/index.js",
   "scripts": {
-    "start": "node ./dist/test.spec.js",
+    "start": "node ./dist/tests/test.spec.js",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 0"
   },

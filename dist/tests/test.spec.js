@@ -36,7 +36,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var index_1 = require("./index");
+var index_1 = require("../index");
 var RL = require("readline-sync");
 var control = new index_1.Controls();
 var Example = [
@@ -51,8 +51,9 @@ var sub = ['alterar', 'excluir'];
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             while (control.pos1 >= 0) {
-                control = index_1.standardMenu(Example, sub, control, 'cyan');
+                control = index_1.menu(control, 'magenta', Example, sub);
                 if (control.pos1 == -1) {
+                    console.clear();
                     return [2, 0];
                 }
                 if (control.pos2 == 0) {

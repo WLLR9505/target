@@ -17,11 +17,11 @@ export class Controls {
         this.select = select || 'e',
         this.back = back || 'q',
         this.pos1 = 0,
-        this.pos2 = 0
+        this.pos2 = -1
     }
 
     resetPos() {
         this.pos1 = 0;
-        this.pos2 = 0;
+        this.pos2 = -1;
     }
 }

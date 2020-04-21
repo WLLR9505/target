@@ -9,11 +9,11 @@ var Controls = (function () {
             this.select = select || 'e',
             this.back = back || 'q',
             this.pos1 = 0,
-            this.pos2 = 0;
+            this.pos2 = -1;
     }
     Controls.prototype.resetPos = function () {
         this.pos1 = 0;
-        this.pos2 = 0;
+        this.pos2 = -1;
     };
     return Controls;
 }());

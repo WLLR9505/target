@@ -1,7 +1,7 @@
-import { standardMenu, Controls, menu } from './index'
-import * as RL from "readline-sync";
+var target = require('../dist/index');
+var RL = require('readline-sync');
 
-var control = new Controls();
+var control = new target.Controls();
 
 var Example = [
     'item',
@@ -13,10 +13,10 @@ var Example = [
 var sub = ['alterar', 'excluir'];
 
 (async function main() {
-
     while (control.pos1 >= 0) {
-        control = standardMenu(Example, sub, control, 'cyan');
+        control = target.menu(control, 'magenta', Example, sub);
         if (control.pos1 == -1) {
+            console.clear();
             return 0;
         }
 
@@ -28,9 +28,9 @@ var sub = ['alterar', 'excluir'];
     }
 }) ();
 
+//----------------------------------------------------------
 
-
-function removeFromArray(arr : any[] , tgt : number) {
+function removeFromArray(arr , tgt) {
     return arr.filter((item, index) => {
         if(index != tgt) {
             return updateItem;
@@ -38,7 +38,7 @@ function removeFromArray(arr : any[] , tgt : number) {
     });
 }
 
-function updateItem(arr : any[], index : number) {
+function updateItem(arr, index) {
     arr[index] = RL.question('updating:\n');
     return arr;
 }
