@@ -22,7 +22,7 @@ colors = [
     ['darkmagenta', '\x1b[22;35m'],
     ['darkcyan', '\x1b[22;36m'],
     ['reset', '\x1b[0m']
-    ]
+    ];
 
 export function menu(menuList: string[], control: Controls, color: string) {
     var posSeletor = 0;

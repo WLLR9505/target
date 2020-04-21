@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/WLLR9505/target#readme",
   "dependencies": {
+    "@types/node": "^13.11.1",
     "@types/readline-sync": "^1.4.3",
     "readline-sync": "^1.4.10"
   }

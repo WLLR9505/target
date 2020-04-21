@@ -6,12 +6,22 @@ export class Controls {
     select: string;
     back: string;
 
+    pos1: number;
+    pos2: number;
+
     constructor(up?: string, right?: string, down?: string, left?: string, select?: string, back?: string) {
         this.up = up || 'w',
         this.right = right || 'd',
         this.down = down || 's',
         this. left = left || 'a',
         this.select = select || 'e',
-        this.back = back || 'q'
+        this.back = back || 'q',
+        this.pos1 = 0,
+        this.pos2 = 0
+    }
+
+    resetPos() {
+        this.pos1 = 0;
+        this.pos2 = 0;
     }
 }
