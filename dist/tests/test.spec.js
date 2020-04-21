@@ -51,7 +51,7 @@ var sub = ['alterar', 'excluir'];
     return __awaiter(this, void 0, void 0, function () {
         return __generator(this, function (_a) {
             while (control.pos1 >= 0) {
-                control = index_1.menu(control, 'magenta', Example, sub);
+                control = index_1.menu(control, 'cyan', Example, sub);
                 if (control.pos1 == -1) {
                     console.clear();
                     return [2, 0];

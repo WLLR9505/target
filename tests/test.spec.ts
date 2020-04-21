@@ -14,7 +14,7 @@ var sub = ['alterar', 'excluir'];
 
 (async function main() {
     while (control.pos1 >= 0) {
-        control = menu(control, 'magenta', Example, sub);
+        control = menu(control, 'cyan', Example, sub);
         if (control.pos1 == -1) {
             console.clear();
             return 0;

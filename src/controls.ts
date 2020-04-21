@@ -9,7 +9,7 @@ export class Controls {
     pos1: number;
     pos2: number;
 
-    constructor(up?: string, right?: string, down?: string, left?: string, select?: string, back?: string) {
+    constructor(select?: string, back?: string, up?: string, right?: string, down?: string, left?: string) {
         this.up = up || 'w',
         this.right = right || 'd',
         this.down = down || 's',
