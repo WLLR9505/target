@@ -9,7 +9,7 @@ Um simples menu customizável utilizando o terminal
 
 ```js
 // 1 - faça require do módulo
-var target = require('target');
+var target = require('target-menu');
 
 // 2 - crie os controles
 var control = new target.Controls();
