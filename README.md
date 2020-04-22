@@ -52,7 +52,7 @@ Se não for utilizar o submenu o omita da função e utilize apenas **.pos1**
 A classe controles possui além das teclas responsáveis pelo direcionamento do menu, a posição atual do seletor no menu **.pos1** e **.pos2** que devem ser utilizados para se referir as funções dos mesmos depois de selecionados.
 
 
-Os controles padrõe utilizando:
+Os controles padrões utilizando:
 ```js
     var control = new Controls();
 ```
@@ -60,7 +60,7 @@ Os controles padrõe utilizando:
 | função | Tecla |
 |-|-|
 | selecionar | e |
-| voltar | q |
+| voltar/sair | q |
 | cima | w |
 | direita | d |
 | baixo | s |
