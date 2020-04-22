@@ -70,31 +70,34 @@ export function menu(control: Controls, color: string, menu: string[], submenu?:
             for (let i = 0; i < menu.length; i++) {
                 if (i == inicioSubmenu || (i > inicioSubmenu && i < (subTam + inicioSubmenu))) {
                     for (let i2 = 0; i2 < subTam; i2++) {
+
                         if (i2 == control.pos2) {
                             //item submenu for igual ao selecionado
                             if (i == control.pos1) {
                                 //menu e submenu selecionados na mesma linha
-                                process.stdout.write(`${cl[0][1]}${menu[i]}${colors[15][1]}\t\t\t`);
+                                process.stdout.write(`${cl[0][1]}`+ `${menu[i]}${colors[15][1]}`.padEnd(25));
                                 process.stdout.write(`${cl[0][2]}${submenu[i2]}${colors[15][1]}\n`);
 
                             } else {
-                                process.stdout.write(`${menu[i]}\t\t\t`);
+                                process.stdout.write(`${menu[i]}`.padEnd(21));
                                 process.stdout.write(`${cl[0][2]}${submenu[i2]}${colors[15][1]}\n`);
 
                             }
                         } else if (i == control.pos1) {
                             //item selecionado no menu
-                            process.stdout.write(`${cl[0][1]}${menu[i]}${colors[15][1]}\t\t\t`);
+                            process.stdout.write(`${cl[0][1]}`+ `${menu[i]}${colors[15][1]}`.padEnd(25));
                             process.stdout.write(`${submenu[i2]}\n`);
 
                         } else {
-                            process.stdout.write(`${menu[i]}\t\t\t`);
+                            process.stdout.write(`${menu[i]}`.padEnd(21));
                             process.stdout.write(`${submenu[i2]}\n`);
                         }
                         i++;
                     }
                 }
-                process.stdout.write(`${menu[i]}\n`);
+                if (i < menu.length) {
+                    process.stdout.write(`${menu[i]}\n`);
+                }
             }
         }
 

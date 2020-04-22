@@ -4,11 +4,11 @@ var RL = require('readline-sync');
 var control = new target.Controls();
 
 var Example = [
-    'item',
-    'item',
-    'item',
-    'item',
-    'item',
+    'in2pos',
+    'wllr-server',
+    'ciphervgnr',
+    'target',
+    'korvo-bot',
 ];
 var sub = ['alterar', 'excluir'];
 

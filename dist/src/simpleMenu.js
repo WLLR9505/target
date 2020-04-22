@@ -57,26 +57,28 @@ function menu(control, color, menu, submenu) {
                     for (var i2 = 0; i2 < subTam; i2++) {
                         if (i2 == control.pos2) {
                             if (i == control.pos1) {
-                                process.stdout.write("" + cl[0][1] + menu[i] + colors[15][1] + "\t\t\t");
+                                process.stdout.write("" + cl[0][1] + ("" + menu[i] + colors[15][1]).padEnd(25));
                                 process.stdout.write("" + cl[0][2] + submenu[i2] + colors[15][1] + "\n");
                             }
                             else {
-                                process.stdout.write(menu[i] + "\t\t\t");
+                                process.stdout.write(("" + menu[i]).padEnd(21));
                                 process.stdout.write("" + cl[0][2] + submenu[i2] + colors[15][1] + "\n");
                             }
                         }
                         else if (i == control.pos1) {
-                            process.stdout.write("" + cl[0][1] + menu[i] + colors[15][1] + "\t\t\t");
+                            process.stdout.write("" + cl[0][1] + ("" + menu[i] + colors[15][1]).padEnd(25));
                             process.stdout.write(submenu[i2] + "\n");
                         }
                         else {
-                            process.stdout.write(menu[i] + "\t\t\t");
+                            process.stdout.write(("" + menu[i]).padEnd(21));
                             process.stdout.write(submenu[i2] + "\n");
                         }
                         i++;
                     }
                 }
-                process.stdout.write(menu[i] + "\n");
+                if (i < menu.length) {
+                    process.stdout.write(menu[i] + "\n");
+                }
             }
         }
         function showMenu() {

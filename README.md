@@ -1,9 +1,13 @@
-# target
+<h1 align="center">target-menu</h1>
+<h3 align="center">Um simples menu customizável utilizando o terminal</h3>
+<h1 align="center">
+    <img alt="Target Menu" src="./docs/demo.gif" width="250px" />
+</h1>
 
-Um simples menu customizável utilizando o terminal
+
 
 # Instalação
-```npm install target```
+```npm install target-menu```
 
 # Usando
 
@@ -62,11 +66,11 @@ Os controles padrões utilizando:
 | selecionar | e |
 | voltar/sair | q |
 | cima | w |
-| direita | d |
 | baixo | s |
+| direita | d |
 | esquerda | a |
 
-> **Nota**: você pode customizar os controles com o seguinte comando
+> **Nota**: você pode customizar os controles passando como parâmetros seguindo a ordem acima: 
 > ```js
->     var control = new target.Controls('o', 'u', 'i', 'l', 'k', 'j');
+>     var control = new target.Controls('o', 'u', 'i','k', 'l', 'j');
 > ```
