@@ -79,7 +79,7 @@ export function menu(control: Controls, color: string, menu: string[], submenu?:
                                 process.stdout.write(`${cl[0][2]}${submenu[i2]}${colors[15][1]}\n`);
 
                             } else {
-                                process.stdout.write(`${menu[i]}`.padEnd(21));
+                                process.stdout.write(`${menu[i] || ''}`.padEnd(21));
                                 process.stdout.write(`${cl[0][2]}${submenu[i2]}${colors[15][1]}\n`);
 
                             }
@@ -89,7 +89,7 @@ export function menu(control: Controls, color: string, menu: string[], submenu?:
                             process.stdout.write(`${submenu[i2]}\n`);
 
                         } else {
-                            process.stdout.write(`${menu[i]}`.padEnd(21));
+                            process.stdout.write(`${menu[i] || ''}`.padEnd(21));
                             process.stdout.write(`${submenu[i2]}\n`);
                         }
                         i++;
