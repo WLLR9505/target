@@ -1,46 +1,35 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var RL = require("readline-sync");
+var Hmenu_1 = require("./updateMenu/Hmenu");
+var Vmenu_1 = require("./updateMenu/Vmenu");
+var VsubMenu_1 = require("./updateMenu/VsubMenu");
+var colors = require("./colors");
 var input = '';
-var colors;
-colors = [
-    ['gray', '\x1b[01;40m', '\x1b[01;40m'],
-    ['red', '\x1b[01;41m', '\x1b[01;31m'],
-    ['green', '\x1b[01;42m', '\x1b[01;32m'],
-    ['yellow', '\x1b[01;43m', '\x1b[01;33m'],
-    ['blue', '\x1b[01;44m', '\x1b[01;34m'],
-    ['magenta', '\x1b[01;45m', '\x1b[01;35m'],
-    ['cyan', '\x1b[01;46m', '\x1b[01;36m'],
-    ['black', '\x1b[22;40m', '\x1b[22;30m'],
-    ['white', '\x1b[01;47m', '\x1b[01;37m'],
-    ['darkred', '\x1b[22;41m', '\x1b[22;31m'],
-    ['darkgreen', '\x1b[22;42m', '\x1b[22;32m'],
-    ['darkyellow', '\x1b[22;43m', '\x1b[22;33m'],
-    ['darkblue', '\x1b[22;44m', '\x1b[22;34m'],
-    ['darkmagenta', '\x1b[22;45m', '\x1b[22;35m'],
-    ['darkcyan', '\x1b[22;46m', '\x1b[22;36m'],
-    ['reset', '\x1b[0m', '\x1b[0m']
-];
-function flexMenu(control, color, menu) {
-    control.resetPos();
+function flexMenu(control, color, menu, mode) {
     var cl = colors.filter(function (e) { return e[0] == color; });
     function subMenu(menu, submenu) {
         function updateSubmenu() {
-            updateMenu();
-            var spaces = 0;
-            for (var i = 0; i <= control.pos1; i++) {
-                spaces += menu[i][0].length + 2;
-            }
-            process.stdout.write('\n');
-            for (var i = 0; i < submenu.length; i++) {
-                if (control.pos2 == i) {
-                    process.stdout.write(("" + cl[0][2] + submenu[i] + colors[15][1] + "\n").padStart(spaces + 12));
+            if (mode === 'h' || mode === 'H') {
+                Hmenu_1.updateMenuH(menu, control, cl);
+                var spaces = 0;
+                for (var i = 0; i <= control.pos1; i++) {
+                    spaces += menu[i][0].length + 2;
                 }
-                else {
-                    process.stdout.write((submenu[i] + "\n").padStart(spaces));
+                process.stdout.write('\n');
+                for (var i = 0; i < submenu.length; i++) {
+                    if (control.pos2 == i) {
+                        process.stdout.write(("" + cl[0][2] + submenu[i] + colors[15][1] + "\n").padStart(spaces + 12));
+                    }
+                    else {
+                        process.stdout.write((submenu[i] + "\n").padStart(spaces));
+                    }
                 }
+                process.stdout.write("\n\n");
             }
-            process.stdout.write("\n\n");
+            else {
+                VsubMenu_1.updatesubMenuV(menu, submenu, control, cl);
+            }
         }
         function showMenu() {
             if (input == control.up)
@@ -68,28 +57,18 @@ function flexMenu(control, color, menu) {
         return control;
     }
     var c = colors.filter(function (e) { return e[0] == color; });
-    function updateMenu() {
-        for (var i2 = 0; i2 < menu.length; i2++) {
-            if (control.pos1 == i2) {
-                process.stdout.write("" + cl[0][2] + menu[i2][0] + "   " + colors[15][1]);
-            }
-            else {
-                process.stdout.write(menu[i2][0] + "   ");
-            }
-        }
-        process.stdout.write('\n');
-    }
+    mode == 'h' ? Hmenu_1.updateMenuH(menu, control, cl) : Vmenu_1.updateMenuV(menu, control, cl);
     function showMenu() {
-        if (input == control.left)
+        if (input == control.left || input == control.up)
             control.pos1--;
-        else if (input == control.right)
+        else if (input == control.right || input == control.down)
             control.pos1++;
         if (control.pos1 == menu.length)
             control.pos1 = 0;
         else if (control.pos1 < 0)
             control.pos1 = menu.length - 1;
         console.clear();
-        updateMenu();
+        mode == 'h' ? Hmenu_1.updateMenuH(menu, control, cl) : Vmenu_1.updateMenuV(menu, control, cl);
     }
     do {
         showMenu();

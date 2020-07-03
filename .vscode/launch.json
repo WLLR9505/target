@@ -19,7 +19,7 @@
             "request": "launch",
             "name": "Launch TS Program",
             "console": "integratedTerminal",
-            "program": "${workspaceFolder}\\tests\\flexMenuTest.spec.ts",
+            "program": "${workspaceFolder}\\tests\\flexMenuTestB.spec.ts",
             "preLaunchTask": "tsc: build - tsconfig.json",
             "outFiles": ["${workspaceFolder}/dist/**/*.js"]
           }

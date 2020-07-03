@@ -1,6 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var RL = require("readline-sync");
+var Vmenu_1 = require("./updateMenu/Vmenu");
+var VsubMenu_1 = require("./updateMenu/VsubMenu");
 var input = '';
 var colors;
 colors = [
@@ -24,63 +26,8 @@ colors = [
 function menu(control, color, menu, submenu) {
     control.resetPos();
     var cl = colors.filter(function (e) { return e[0] == color; });
-    function subMenu(menu, submenu) {
-        var mTam = 0, subTam = 0;
-        var subCima, menuCima, menuBaixo, subBaixo;
-        var meiosub = Number((submenu.length / 2).toFixed()) - 1;
-        mTam = menu.length;
-        subTam = submenu.length;
-        menuBaixo = Number((mTam - control.pos1).toFixed());
-        menuCima = Number((control.pos1 - 1).toFixed());
-        subBaixo = Number((subTam - meiosub).toFixed());
-        subCima = Number((meiosub - 1).toFixed());
-        if (subCima > menuCima) {
-            while (subCima > menuCima) {
-                subBaixo++;
-                subCima--;
-                meiosub--;
-            }
-        }
-        else if (subBaixo > menuBaixo) {
-            while (subBaixo > menuBaixo) {
-                subCima++;
-                subBaixo--;
-                meiosub++;
-            }
-        }
-        function updateSubmenu() {
-            var nAselecionado = control.pos1;
-            var nAmeio = meiosub;
-            var inicioSubmenu = nAselecionado - nAmeio;
-            for (var i = 0; i < menu.length; i++) {
-                if (i == inicioSubmenu || (i > inicioSubmenu && i < (subTam + inicioSubmenu))) {
-                    for (var i2 = 0; i2 < subTam; i2++) {
-                        if (i2 == control.pos2) {
-                            if (i == control.pos1) {
-                                process.stdout.write("" + cl[0][1] + ("" + menu[i] + colors[15][1]).padEnd(25));
-                                process.stdout.write("" + cl[0][2] + submenu[i2] + colors[15][1] + "\n");
-                            }
-                            else {
-                                process.stdout.write(("" + (menu[i] || '')).padEnd(21));
-                                process.stdout.write("" + cl[0][2] + submenu[i2] + colors[15][1] + "\n");
-                            }
-                        }
-                        else if (i == control.pos1) {
-                            process.stdout.write("" + cl[0][1] + ("" + menu[i] + colors[15][1]).padEnd(25));
-                            process.stdout.write(submenu[i2] + "\n");
-                        }
-                        else {
-                            process.stdout.write(("" + (menu[i] || '')).padEnd(21));
-                            process.stdout.write(submenu[i2] + "\n");
-                        }
-                        i++;
-                    }
-                }
-                if (i < menu.length) {
-                    process.stdout.write(menu[i] + "\n");
-                }
-            }
-        }
+    function subMenu(submenu) {
+        VsubMenu_1.updatesubMenuV(menu, submenu, control, cl);
         function showMenu() {
             if (input == control.up)
                 control.pos2--;
@@ -91,7 +38,7 @@ function menu(control, color, menu, submenu) {
             else if (control.pos2 < 0)
                 control.pos2 = submenu.length - 1;
             console.clear();
-            updateSubmenu();
+            VsubMenu_1.updatesubMenuV(menu, submenu, control, cl);
         }
         do {
             showMenu();
@@ -106,18 +53,7 @@ function menu(control, color, menu, submenu) {
         } while (input != control.select);
         return control;
     }
-    var c = colors.filter(function (e) { return e[0] == color; });
-    function updateMenu() {
-        for (var i2 = 0; i2 < menu.length; i2++) {
-            if (control.pos1 == i2) {
-                process.stdout.write(cl[0][2] + " " + menu[i2] + " " + colors[15][1] + "\n");
-            }
-            else {
-                process.stdout.write(menu[i2] + "\n");
-            }
-        }
-        process.stdout.write('\n');
-    }
+    Vmenu_1.updateMenuV(menu, control, cl);
     function showMenu() {
         if (input == control.up)
             control.pos1--;
@@ -128,7 +64,7 @@ function menu(control, color, menu, submenu) {
         else if (control.pos1 < 0)
             control.pos1 = menu.length - 1;
         console.clear();
-        updateMenu();
+        Vmenu_1.updateMenuV(menu, control, cl);
     }
     do {
         showMenu();
@@ -142,9 +78,8 @@ function menu(control, color, menu, submenu) {
         }
     } while (input != control.select);
     if (submenu) {
-        subMenu(menu, submenu);
+        subMenu(submenu);
     }
-    return control;
 }
 exports.menu = menu;
 //# sourceMappingURL=simpleMenu.js.map

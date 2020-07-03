@@ -14,29 +14,29 @@ let HorizontalMenu = [
 (function exampleFlexMenu() {
     let selected : any;
     while (control.pos1 >= 0) {
-        selected = flexMenu(control, 'green', HorizontalMenu);
-        
+        selected = flexMenu(control, 'green', HorizontalMenu, 'v');
+
         switch (control.pos1) {
             case -1:
                 break;
             case 0:
-                test(selected);
+                print(selected);
                 break;
             case 1:
-                test(HorizontalMenu[control.pos1][1][control.pos2]);
+                print(HorizontalMenu[control.pos1][1][control.pos2]);
                 break;
             case 2:
-                test(selected);
+                print(selected[0]);
                 break;
             case 3:
-                test(selected);
+                print(selected);
                 break;
         }
     }
 })();
 //----------------------------------------------------------
 
-function test(txt : string) {
+function print(txt : string) {
     console.log(txt);
     RL.keyIn();
 }
