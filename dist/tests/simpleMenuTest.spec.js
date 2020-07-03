@@ -78,4 +78,4 @@ function updateItem(arr, index) {
     arr[index] = RL.question('updating:\n');
     return arr;
 }
-//# sourceMappingURL=test.spec.js.map
+//# sourceMappingURL=simpleMenuTest.spec.js.map

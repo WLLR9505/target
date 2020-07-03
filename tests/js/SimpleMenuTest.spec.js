@@ -1,4 +1,4 @@
-var target = require('../dist/index');
+var target = require('../../dist/index');
 var RL = require('readline-sync');
 
 var control = new target.Controls();

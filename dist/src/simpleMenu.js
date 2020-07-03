@@ -110,13 +110,13 @@ function menu(control, color, menu, submenu) {
     function updateMenu() {
         for (var i2 = 0; i2 < menu.length; i2++) {
             if (control.pos1 == i2) {
-                console.log(cl[0][2] + " " + menu[i2] + " " + colors[15][1]);
+                process.stdout.write(cl[0][2] + " " + menu[i2] + " " + colors[15][1] + "\n");
             }
             else {
-                console.log("" + menu[i2]);
+                process.stdout.write(menu[i2] + "\n");
             }
         }
-        console.log('\n');
+        process.stdout.write('\n');
     }
     function showMenu() {
         if (input == control.up)

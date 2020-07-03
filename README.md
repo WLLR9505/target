@@ -20,7 +20,7 @@ var control = new target.Controls();
 
 // 3 - crie o(s) menu(s)
 //NOTA: submenu é opcional
-var Example = [
+var example = [
     'item',
     'item',
     'item',
@@ -31,7 +31,7 @@ var sub = ['alterar', 'excluir'];
 
 // 4 - faça um loop chamando o menu
 while (control.pos1 >= 0) {
-        control = target.menu(control, 'cyan', Example, sub);
+        control = target.menu(control, 'cyan', example, sub);
     // 5 - faça um ponto de saida logo em seguida
     if (control.pos1 == -1) {
             console.clear();

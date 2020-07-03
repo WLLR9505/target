@@ -7,15 +7,21 @@
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch TS Program",
+            "name": "Launch JS Program",
             "console": "integratedTerminal",
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\dist\\tests\\test.spec.js",
-            "outFiles": [
-                "${workspaceFolder}/dist/**/*.js"
-            ]
-        }
+            "program": "${workspaceFolder}\\dist\\tests\\test.spec.js"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Launch TS Program",
+            "console": "integratedTerminal",
+            "program": "${workspaceFolder}\\tests\\flexMenuTest.spec.ts",
+            "preLaunchTask": "tsc: build - tsconfig.json",
+            "outFiles": ["${workspaceFolder}/dist/**/*.js"]
+          }
     ]
 }
