@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Target by WLLR9505</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/github-dark.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/WLLR9505/target">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/WLLR9505/target/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/WLLR9505/target/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Target</h1>
+          <p>Simple terminal menu using node.js</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/WLLR9505">WLLR9505</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
+        <h1 align="center">
+<a id="target-menu" class="anchor" href="#target-menu" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>target-menu</h1>
+<h3 align="center">
+<a id="um-simples-menu-customizável-utilizando-o-terminal" class="anchor" href="#um-simples-menu-customiz%C3%A1vel-utilizando-o-terminal" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Um simples menu customizável utilizando o terminal</h3>
+<h1 align="center">
+<a id="----" class="anchor" href="#----" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>
+    <img alt="Target Menu" src="https://raw.githubusercontent.com/WLLR9505/target/master/docs/demo.gif" width="250px">
+</h1>
+<h1>
+<a id="instalação" class="anchor" href="#instala%C3%A7%C3%A3o" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Instalação</h1>
+<p><code>npm install target-menu</code></p>
+<h1>
+<a id="usando" class="anchor" href="#usando" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usando</h1>
+<div class="highlight highlight-source-js"><pre><span class="pl-c">// 1 - faça require do módulo</span>
+<span class="pl-k">var</span> <span class="pl-s1">target</span> <span class="pl-c1">=</span> <span class="pl-en">require</span><span class="pl-kos">(</span><span class="pl-s">'target-menu'</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+
+<span class="pl-c">// 2 - crie os controles</span>
+<span class="pl-k">var</span> <span class="pl-s1">control</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-s1">target</span><span class="pl-kos">.</span><span class="pl-c1">Controls</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+
+<span class="pl-c">// 3 - crie o(s) menu(s)</span>
+<span class="pl-c">//NOTA: submenu é opcional</span>
+<span class="pl-k">var</span> <span class="pl-v">Example</span> <span class="pl-c1">=</span> <span class="pl-kos">[</span>
+    <span class="pl-s">'item'</span><span class="pl-kos">,</span>
+    <span class="pl-s">'item'</span><span class="pl-kos">,</span>
+    <span class="pl-s">'item'</span><span class="pl-kos">,</span>
+    <span class="pl-s">'item'</span><span class="pl-kos">,</span>
+    <span class="pl-s">'item'</span><span class="pl-kos">,</span>
+<span class="pl-kos">]</span><span class="pl-kos">;</span>
+<span class="pl-k">var</span> <span class="pl-s1">sub</span> <span class="pl-c1">=</span> <span class="pl-kos">[</span><span class="pl-s">'alterar'</span><span class="pl-kos">,</span> <span class="pl-s">'excluir'</span><span class="pl-kos">]</span><span class="pl-kos">;</span>
+
+<span class="pl-c">// 4 - faça um loop chamando o menu</span>
+<span class="pl-k">while</span> <span class="pl-kos">(</span><span class="pl-s1">control</span><span class="pl-kos">.</span><span class="pl-c1">pos1</span> &gt;= <span class="pl-c1">0</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+        <span class="pl-s1">control</span> <span class="pl-c1">=</span> <span class="pl-s1">target</span><span class="pl-kos">.</span><span class="pl-en">menu</span><span class="pl-kos">(</span><span class="pl-s1">control</span><span class="pl-kos">,</span> <span class="pl-s">'cyan'</span><span class="pl-kos">,</span> <span class="pl-v">Example</span><span class="pl-kos">,</span> <span class="pl-s1">sub</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-c">// 5 - faça um ponto de saida logo em seguida</span>
+    <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">control</span><span class="pl-kos">.</span><span class="pl-c1">pos1</span> <span class="pl-c1">==</span> <span class="pl-c1">-</span><span class="pl-c1">1</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+            <span class="pl-smi">console</span><span class="pl-kos">.</span><span class="pl-en">clear</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+            <span class="pl-k">return</span> <span class="pl-c1">0</span><span class="pl-kos">;</span>
+        <span class="pl-kos">}</span>
+    <span class="pl-c">// 6 - chame suas funções baseadas nos seletores do menu</span>
+    <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">control</span><span class="pl-kos">.</span><span class="pl-c1">pos2</span> <span class="pl-c1">==</span> <span class="pl-c1">0</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+        <span class="pl-en">yourFunction</span><span class="pl-kos">(</span><span class="pl-s1">control</span><span class="pl-kos">.</span><span class="pl-c1">pos1</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-kos">}</span> <span class="pl-k">else</span> <span class="pl-k">if</span> <span class="pl-kos">(</span><span class="pl-s1">control</span><span class="pl-kos">.</span><span class="pl-c1">pos2</span> <span class="pl-c1">==</span> <span class="pl-c1">1</span><span class="pl-kos">)</span> <span class="pl-kos">{</span>
+        <span class="pl-en">yourSecondFunction</span><span class="pl-kos">(</span><span class="pl-s1">control</span><span class="pl-kos">.</span><span class="pl-c1">pos1</span><span class="pl-kos">)</span><span class="pl-kos">;</span>
+    <span class="pl-kos">}</span>
+<span class="pl-kos">}</span></pre></div>
+<h2>
+<a id="submenu" class="anchor" href="#submenu" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Submenu</h2>
+<p>O uso do submenu é opcional e indicado apenas quando o menu principal tem o mesmo submenu para seus itens, exemplo: listas. Quando utilizado o <strong>.pos1</strong> indicará o item do menu principal selecionado, e o <strong>.pos2</strong> a função que será aplicada neste item.</p>
+<p>Se não for utilizar o submenu o omita da função e utilize apenas <strong>.pos1</strong></p>
+<h1>
+<a id="controles" class="anchor" href="#controles" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Controles</h1>
+<p>A classe controles possui além das teclas responsáveis pelo direcionamento do menu, a posição atual do seletor no menu <strong>.pos1</strong> e <strong>.pos2</strong> que devem ser utilizados para se referir as funções dos mesmos depois de selecionados.</p>
+<p>Os controles padrões utilizando:</p>
+<div class="highlight highlight-source-js"><pre>    <span class="pl-k">var</span> <span class="pl-s1">control</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-v">Controls</span><span class="pl-kos">(</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
+<table>
+<thead>
+<tr>
+<th>função</th>
+<th>Tecla</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>selecionar</td>
+<td>e</td>
+</tr>
+<tr>
+<td>voltar/sair</td>
+<td>q</td>
+</tr>
+<tr>
+<td>cima</td>
+<td>w</td>
+</tr>
+<tr>
+<td>baixo</td>
+<td>s</td>
+</tr>
+<tr>
+<td>direita</td>
+<td>d</td>
+</tr>
+<tr>
+<td>esquerda</td>
+<td>a</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Nota</strong>: você pode customizar os controles passando como parâmetros seguindo a ordem acima:</p>
+<div class="highlight highlight-source-js"><pre>    <span class="pl-k">var</span> <span class="pl-s1">control</span> <span class="pl-c1">=</span> <span class="pl-k">new</span> <span class="pl-s1">target</span><span class="pl-kos">.</span><span class="pl-c1">Controls</span><span class="pl-kos">(</span><span class="pl-s">'o'</span><span class="pl-kos">,</span> <span class="pl-s">'u'</span><span class="pl-kos">,</span> <span class="pl-s">'i'</span><span class="pl-kos">,</span><span class="pl-s">'k'</span><span class="pl-kos">,</span> <span class="pl-s">'l'</span><span class="pl-kos">,</span> <span class="pl-s">'j'</span><span class="pl-kos">)</span><span class="pl-kos">;</span></pre></div>
+</blockquote>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
