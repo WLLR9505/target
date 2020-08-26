@@ -13,7 +13,7 @@ let HorizontalMenu = [
 (function exampleFlexMenu() {
     let selected : any;
     while (control.pos1 >= 0) {
-        selected = flexMenu(control, 'green', HorizontalMenu, 'v');
+        selected = flexMenu(control, 'green', HorizontalMenu, 'h');
 
         switch (control.pos1) {
             case -1:

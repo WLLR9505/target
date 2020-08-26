@@ -16,10 +16,6 @@
 
 ---
 
-# Instalação
-
-```npm install target-menu```
-
 # Usando
 
 ```js
@@ -66,6 +62,12 @@ Se não for utilizar o submenu o omita da função e utilize apenas **.pos1**
 [Voltar ao Sumário](#Sumário)  
 ## Flexmenu
 O flexMenu contorna o problema dos submenus, ele permite que sejam utilizados submenus diferentes para cada item que compõe o menu, porém sua sintaxe é diferente.
+<h1 align="center">
+    <img alt="Target Menu" src="./docs/demo_flex_h.gif" width="250px" />
+    <img alt="Target Menu" src="./docs/demo_flex_v.gif" width="250px" />
+</h1>
+
+> as imagens acima representam o menu em forma horizontal e vertical, essa opção é definida no último parâmetro da função `flexMenu()` devendo ser utilizado 'h' para horizontal e 'v' para vertical
 
 ### Estrutura do Menu variável
 A variável que armazena este tipo de menu é um Array, esse array contém dentro de si outro Array onde: **a primeira posição é o item a ser exibido no menu** e **a segunda posição é o submenu deste item** *que pode ser omitido*.
