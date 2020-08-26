@@ -1,3 +1,4 @@
 import { menu } from "./src/simpleMenu";
 import { Controls } from "./src/controls";
-export { menu, Controls };
+import { flexMenu } from "./src/flexMenu";
+export { menu, flexMenu, Controls };
