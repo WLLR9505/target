@@ -100,4 +100,5 @@ export function menu(control: Controls, color: string, menu: string[], submenu?:
     if (submenu) {
         subMenu(submenu);
     }
+    return control;
 }

@@ -1,6 +1,6 @@
 {
-  "name": "target-menu",
-  "version": "2.0.1",
+  "name": "@wllr9505/target-menu",
+  "version": "2.1.0",
   "description": "Simple terminal menu",
   "main": "./dist/index.js",
   "scripts": {
